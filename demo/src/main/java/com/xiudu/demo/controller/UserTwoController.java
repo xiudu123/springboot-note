@@ -1,11 +1,23 @@
 package com.xiudu.demo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.xiudu.demo.config.api.Result;
 import com.xiudu.demo.config.handler.CustomException;
+import com.xiudu.demo.controller.param.UserParam;
 import com.xiudu.demo.pojo.User;
+import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.json.JSONObject;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -20,15 +32,26 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "用户接口")
 @RestController
 @RequestMapping("/user")
+@Validated
 public class UserTwoController {
 
 
     @Operation(summary = "测试", description = "测试接口")
     @PostMapping("/add/success")
-    public Result<?> userAddSuccess(User user1) {
-        User user = new User(1L, 20, "111", "123", "12345", 2);
-        return Result.success(user);
+    public Result<?> userAddSuccess(@RequestBody @Validated(UserParam.FirstGroup.class) UserParam jsonParam) {
+        System.out.println(jsonParam);
+        // 处理 jsonParam
 
+        return Result.success(jsonParam);
+    }
+
+    @Operation(summary = "测试2", description = "测试接口2")
+    @PostMapping("/add/success/2")
+    public Result<?> userAddSuccess2(@RequestBody @Validated(UserParam.SecondGroup.class) UserParam jsonParam) {
+        System.out.println(jsonParam);
+        // 处理 jsonParam
+
+        return Result.success(jsonParam);
     }
 
 

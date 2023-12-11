@@ -2,9 +2,15 @@ package com.xiudu.demo.config.handler;
 
 import com.xiudu.demo.config.api.Result;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.ArrayList;
+
 
 /**
  * @author: 锈渎
@@ -13,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @description: 自定义错误拦截器, 同一处理页面错误判断
  */
 
-@ControllerAdvice // 拦截所有标注有Controller注解的错误
+@RestControllerAdvice // 拦截所有标注有RestController注解的错误
 @Slf4j
 public class ControllerExceptionHandler {
 
@@ -22,12 +28,21 @@ public class ControllerExceptionHandler {
     @ResponseBody
     public Result<?> exceptionHandel(Exception e) throws Exception {
         //错误信息打印成日志
-        log.error("Exception : ",e);
+        log.error("Exception : {}",e.getClass());
+
         if(e instanceof CustomException exception) { // 返回自定义错误;
             return Result.error(exception.getCode(), exception.getMessage());
-        }else if(e instanceof RuntimeException){ // 返回 400;
+        } else if(e instanceof MethodArgumentNotValidException) { // 返回参数校验错误;
+            BindingResult bindingResult = ((MethodArgumentNotValidException) e).getBindingResult();
+            ArrayList<String> errors = new ArrayList<>();
+            for(FieldError fieldError : bindingResult.getFieldErrors()) {
+                errors.add(fieldError.getDefaultMessage());
+            }
+            return Result.error(5, errors.toString());
+        }
+        else if(e instanceof RuntimeException){ // 返回 400;
             return Result.error("Runtime Error");
-        }else  return Result.error("系统错误"); // 返回其他系统错误
+        } else return Result.error("系统错误"); // 返回其他系统错误
     }
 
 }
