@@ -9089,3 +9089,38 @@ Caused by: java.lang.ClassNotFoundException: com.xiudu.demo.controller.param.Use
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
 	... 30 common frames omitted
 
+2023-12-11T17:26:33.626+08:00  INFO 27716 --- [restartedMain] com.xiudu.demo.DemoApplication           : Starting DemoApplication using Java 17.0.2 with PID 27716 (F:\11111spring_boot\test\demo\target\classes started by 84450 in F:\11111spring_boot\test\demo)
+2023-12-11T17:26:33.626+08:00  INFO 27716 --- [restartedMain] com.xiudu.demo.DemoApplication           : The following 1 profile is active: "dev"
+2023-12-11T17:26:33.754+08:00  INFO 27716 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-12-11T17:26:33.754+08:00  INFO 27716 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-12-11T17:26:33.756+08:00  INFO 27716 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JDBC repository interfaces.
+2023-12-11T17:26:33.759+08:00  INFO 27716 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-12-11T17:26:33.759+08:00  INFO 27716 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-11T17:26:33.760+08:00  INFO 27716 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2023-12-11T17:26:33.906+08:00  INFO 27716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2023-12-11T17:26:33.906+08:00  INFO 27716 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-11T17:26:33.907+08:00  INFO 27716 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-11T17:26:33.948+08:00  INFO 27716 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-12-11T17:26:33.948+08:00  INFO 27716 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 321 ms
+2023-12-11T17:26:34.027+08:00  INFO 27716 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2023-12-11T17:26:34.037+08:00  INFO 27716 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@60954bf9
+2023-12-11T17:26:34.037+08:00  INFO 27716 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2023-12-11T17:26:34.039+08:00  INFO 27716 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-11T17:26:34.042+08:00  INFO 27716 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-11T17:26:34.045+08:00  INFO 27716 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-11T17:26:34.052+08:00  INFO 27716 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-11T17:26:34.053+08:00  INFO 27716 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-11T17:26:34.181+08:00  WARN 27716 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-11T17:26:35.117+08:00  WARN 27716 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2023-12-11T17:26:35.478+08:00  INFO 27716 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-11T17:26:35.490+08:00  INFO 27716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3000 (http) with context path ''
+2023-12-11T17:26:35.494+08:00  INFO 27716 --- [restartedMain] com.xiudu.demo.DemoApplication           : Started DemoApplication in 1.885 seconds (process running for 118.092)
+2023-12-11T17:26:35.495+08:00  INFO 27716 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-12-11T17:26:37.563+08:00  INFO 27716 --- [http-nio-3000-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-11T17:26:37.564+08:00  INFO 27716 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-11T17:26:37.564+08:00  INFO 27716 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-12-11T17:26:37.577+08:00 ERROR 27716 --- [http-nio-3000-exec-1] c.x.d.c.h.ControllerExceptionHandler     : Exception : class org.springframework.web.bind.MethodArgumentNotValidException
+2023-12-11T17:26:37.580+08:00  WARN 27716 --- [http-nio-3000-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.xiudu.demo.config.api.Result<?> com.xiudu.demo.controller.UserTwoController.userAddSuccess2(com.xiudu.demo.controller.param.UserParam): [Field error in object 'userParam' on field 'userId': rejected value [11111111111111]; codes [Max.userParam.userId,Max.userId,Max.java.lang.Long,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userParam.userId,userId]; arguments []; default message [userId],10]; default message [User ID Length should be 1-10]] ]
+2023-12-11T17:32:04.877+08:00  INFO 27716 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-11T17:32:04.877+08:00  INFO 27716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-12-11T17:32:04.881+08:00  INFO 27716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
