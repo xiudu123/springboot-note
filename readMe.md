@@ -1,5 +1,7 @@
 **用于记录学习 `SpringBoot` 的笔记** 
 
+
+
 ### 修改Banner
 
 在`.properties`文件中添加配置
@@ -98,7 +100,18 @@ logging.file.path=log/blog-dev.log
 
 > 前后端分离时，请求地址的域名或端口和当前访问的域名或端口不一样会产生跨域问题
 
-为解决其问题，需要在config下加入两个配置类
+为解决其问题，需要在 `config` 下加入两个配置类
+
+先在 `pom.xml` 添加依赖配置
+
+```xml
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+</dependency>
+```
 
 `CorsConfig`
 
@@ -186,6 +199,23 @@ public class CorsMapping implements WebMvcConfigurer {
     }
 }
 
+```
+
+### JSON
+
+如果要用到 `JSON` 需要添加以下依赖
+
+```xml
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20231013</version>
+</dependency>
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.62</version>
+</dependency>
 ```
 
 
@@ -447,9 +477,14 @@ public class CustomException extends RuntimeException{
    ```java
    import com.xiudu.demo.config.api.Result;
    import lombok.extern.slf4j.Slf4j;
-   import org.springframework.web.bind.annotation.ControllerAdvice;
+   import org.springframework.validation.BindingResult;
+   import org.springframework.validation.FieldError;
+   import org.springframework.web.bind.MethodArgumentNotValidException;
    import org.springframework.web.bind.annotation.ExceptionHandler;
    import org.springframework.web.bind.annotation.ResponseBody;
+   import org.springframework.web.bind.annotation.RestControllerAdvice;
+   
+   import java.util.ArrayList;
    
    /**
     * @author: 锈渎
